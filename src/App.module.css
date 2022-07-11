@@ -1,0 +1,113 @@
+.contentPage {
+  background: var(--gray-600);
+  display: flex;
+  flex: 1;
+  height: calc(100vh - 192px);
+  justify-content: center;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 46rem;
+  padding: 0 1rem;
+}
+
+
+
+.toDoContent {
+  display: flex;
+  flex-direction: column;
+  margin-top: 4rem;
+  width: 100%;
+}
+
+
+.toDoContent header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+
+.toDoCreatedBox strong {
+  color: var(--blue);
+  font-weight: bold;
+}
+
+.toDoCreatedBox span {
+  color: var(--gray-200);
+  font-weight: bold;
+  background: var(--gray-500);
+  padding:  0.125rem 0.5rem;
+  border-radius: 8px;
+  margin-left: 0.5rem;
+}
+
+.toDoCompletedBox strong {
+  color: var(--purple);
+  font-weight: bold;
+}
+
+.toDoCompletedBox span {
+  color: var(--gray-200);
+  font-weight: bold;
+  background: var(--gray-500);
+  padding:  0.125rem 0.5rem;
+  border-radius: 8px;
+  margin-left: 0.5rem;
+}
+
+.formContent {
+  display: flex;
+  width: 100%;
+  transform: translate(0, -50%);
+}
+
+form {
+  width: 100%;
+}
+
+.inputBox{
+  display: flex;
+  gap: 0.5rem;
+}
+
+.inputBox input {
+  width: 100%;
+  border: 0;
+  border-radius: 8px;
+  background: var(--gray-500);
+  line-height: 1.4;
+  padding: 1rem;
+  color: var(--gray-300);
+}
+
+.inputBox button {
+  background: var(--blue-dark);
+  border: 0;
+  border-radius: 8px;
+  color: var(--white);
+  padding: 1rem;
+  font-weight: bold;
+  font-size: 0.875rem;
+  transition: background-color 0.1s;
+}
+
+.inputBox button:not(:disabled):hover  {
+  background: var(--blue);
+}
+
+.inputBox button[type=submit] {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.inputBox button[type=submit]:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
