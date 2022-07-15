@@ -67,24 +67,24 @@ export function App() {
       <Header />
       <div className={styles.contentPage}>
         <main>
-        <div className={styles.formContent}>
-          <form onSubmit={handleCreateNewToDo} >
-            <div className={styles.inputBox}>
-              <input 
-              placeholder='Adicione uma nova tarefa...' 
-              type="text" 
-              value={newToDoText}
-              onChange={handleNewToDoChange}
-              required
-              />
-              <button 
-                type='submit'
-                disabled={isInputEmpty}
-                >Criar <PlusCircle size={18} />
-              </button>
-            </div>
-          </form>
-        </div>
+          <div className={styles.formContent}>
+            <form onSubmit={handleCreateNewToDo} >
+              <div className={styles.inputBox}>
+                <input 
+                placeholder='Adicione uma nova tarefa...' 
+                type="text" 
+                value={newToDoText}
+                onChange={handleNewToDoChange}
+                required
+                />
+                <button 
+                  type='submit'
+                  disabled={isInputEmpty}
+                  >Criar <PlusCircle size={18} />
+                </button>
+              </div>
+            </form>
+          </div>
           <div className={styles.toDoContent}>
             <header>
               <div className={styles.toDoCreatedBox}>
