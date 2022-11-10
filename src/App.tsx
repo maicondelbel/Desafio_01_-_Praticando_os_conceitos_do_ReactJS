@@ -5,7 +5,7 @@ import { ToDoItem } from './components/ToDoItem'
 import { EmptyItem } from './components/EmptyItem'
 
 import { PlusCircle } from "phosphor-react";
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 
 import styles from "./App.module.css"
 
@@ -15,16 +15,29 @@ interface IToDo {
   finished: boolean;
 }
 
-const ToDoList: IToDo[] = [];
+function getToDosFromLocalStorage(): IToDo[] {
+  const storedStateAsJSON = localStorage.getItem(
+    '@ignite-toDo',
+  )
+  if (storedStateAsJSON) {
+    return JSON.parse(storedStateAsJSON)
+  }
+  return []
+}
 
 export function App() {
   
   const [newToDoText, setNewToDoText] = useState('');
-  const [toDos, setToDos] = useState(ToDoList);
+  const [toDos, setToDos] = useState(getToDosFromLocalStorage());
 
   const numberOfToDos = toDos.length;
   const numberOfToDosFinished = toDos.filter(items => items.finished === true).length;
   const isInputEmpty = newToDoText.length === 0;
+
+  useEffect(() => {
+    const stateJSON = JSON.stringify(toDos)
+    localStorage.setItem('@ignite-toDo', stateJSON)
+  }, [toDos])
 
   function handleNewToDoChange(event: ChangeEvent<HTMLInputElement>) {
     setNewToDoText(event.target.value);
